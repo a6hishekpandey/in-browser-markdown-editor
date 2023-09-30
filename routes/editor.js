@@ -1,5 +1,5 @@
 const express = require("express");
-const { isLoggedIn, isOwner } = require("../middlewares");
+const { isLoggedIn, isOwner, isIdValid } = require("../middlewares");
 const editorController = require("../controllers/editor");
 const catchAsyncErrors = require("../utils/catchAsyncErrors");
 const router = express.Router();
