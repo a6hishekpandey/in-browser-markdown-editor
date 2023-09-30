@@ -46,7 +46,7 @@ module.exports.redirectToEditorIfAuthenticated = (req, res, next) => {
 
 module.exports.isIdValid = (req, res, next) => {
     const id = req.params.id;
-    if(ObjectId.isIdValid(id)) {
+    if(ObjectId.isValid(id)) {
         if((String)(new ObjectId(id)) === id) {
             next();
         } else {
