@@ -21,6 +21,7 @@ module.exports.isOwner = async (req, res, next) => {
             return next(new AppError(401, "Not authorized!"));
         }
     } else {
+        // handling async error in express
         return next(new AppError(404, "404 Not found!"));
     }
     next();
@@ -55,5 +56,4 @@ module.exports.isIdValid = (req, res, next) => {
     } else {
         throw new AppError(404, "404 Not found!");
     }
-    
 };
