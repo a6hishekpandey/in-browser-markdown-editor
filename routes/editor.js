@@ -10,10 +10,11 @@ router.get("/readme", isLoggedIn, editorController.renderEditor);
 
 router
     .route("/:id")
-    .get(isLoggedIn, isOwner, catchAsyncErrors(editorController.getDocument))
-    .put(isLoggedIn, isOwner, catchAsyncErrors(editorController.updateDocument))
+    .get(isLoggedIn, isIdValid, isOwner, catchAsyncErrors(editorController.getDocument))
+    .put(isLoggedIn, isIdValid, isOwner, catchAsyncErrors(editorController.updateDocument))
     .delete(
         isLoggedIn,
+        isIdValid,
         isOwner,
         catchAsyncErrors(editorController.deleteDocument)
     );
