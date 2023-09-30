@@ -16,10 +16,10 @@ module.exports.isOwner = async (req, res, next) => {
     const response = await Document.findById(id);
     if (response) {
         if (response.user._id.toString() !== req.user._id.toString()) {
-            return next(new AppError(401, "Not Authorized!"));
+            return next(new AppError(401, "Not authorized!"));
         }
     } else {
-        return next(new AppError(404, "Not found!"));
+        return next(new AppError(404, "404 Not found!"));
     }
     next();
 };
