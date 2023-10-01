@@ -142,6 +142,7 @@ passport.use(
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+// Flash setup is pending on ui
 app.use((req, res, next) => {
     res.locals.success = req.flash("success");
     res.locals.danger = req.flash("danger");
