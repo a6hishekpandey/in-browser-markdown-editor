@@ -49,11 +49,8 @@ module.exports.isIdValid = (req, res, next) => {
     const id = req.params.id;
     if(ObjectId.isValid(id)) {
         if((String)(new ObjectId(id)) === id) {
-            next();
-        } else {
-            throw new AppError(404, "404 Not found!");
+            return next();
         }
-    } else {
-        throw new AppError(404, "404 Not found!");
     }
+    throw new AppError(404, "404 Not found!");
 };
